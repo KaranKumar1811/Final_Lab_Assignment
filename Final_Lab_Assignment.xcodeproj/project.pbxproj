@@ -14,6 +14,7 @@
 		9BAFB71023DBAD9C001372A6 /* Final_Lab_Assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFB70E23DBAD9C001372A6 /* Final_Lab_Assignment.xcdatamodeld */; };
 		9BAFB71223DBAD9C001372A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFB71123DBAD9C001372A6 /* Assets.xcassets */; };
 		9BAFB71523DBAD9C001372A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFB71323DBAD9C001372A6 /* LaunchScreen.storyboard */; };
+		9BAFB71D23DBB37D001372A6 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFB71C23DBB37D001372A6 /* Products.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9BAFB71123DBAD9C001372A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BAFB71423DBAD9C001372A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BAFB71623DBAD9C001372A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BAFB71C23DBB37D001372A6 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				9BAFB71323DBAD9C001372A6 /* LaunchScreen.storyboard */,
 				9BAFB71623DBAD9C001372A6 /* Info.plist */,
 				9BAFB70E23DBAD9C001372A6 /* Final_Lab_Assignment.xcdatamodeld */,
+				9BAFB71C23DBB37D001372A6 /* Products.swift */,
 			);
 			path = Final_Lab_Assignment;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				9BAFB70A23DBAD9C001372A6 /* ViewController.swift in Sources */,
 				9BAFB70623DBAD9C001372A6 /* AppDelegate.swift in Sources */,
+				9BAFB71D23DBB37D001372A6 /* Products.swift in Sources */,
 				9BAFB70823DBAD9C001372A6 /* SceneDelegate.swift in Sources */,
 				9BAFB71023DBAD9C001372A6 /* Final_Lab_Assignment.xcdatamodeld in Sources */,
 			);
