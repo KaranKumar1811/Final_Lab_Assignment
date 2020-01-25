@@ -11,12 +11,12 @@ import CoreData
 class ViewController: UIViewController {
 
     var products : [Products]?
-    var index1: Int = 0
-    var name = " bfks   "
+    var index1: Int = 1
+    var name = " "
     var id = 0
-    var desc = "bjdfgks "
+    var desc = " "
     var price = 0.0
-    var id1 = ""
+   
     
     @IBOutlet var textFields: [UITextField]!
     override func viewDidLoad() {
@@ -31,9 +31,10 @@ class ViewController: UIViewController {
         
         
     }
-    func setIndex(index: Int,data: String){
+    func setIndex(index: Int,data: Int){
                print(data);
-               id1 = data
+               id = data
+        print(id)
                products = [Products]()
                
                let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
                            
                            let pprice = result.value(forKey: "price") as! Float
                            
-                           if (id1 == data)
+                           if (id == data)
                            {
                                print(name)
                             products?.append(Products(ProductName: name, Product_Description: desc, Product_Price: Int(price), Product_Id: id))

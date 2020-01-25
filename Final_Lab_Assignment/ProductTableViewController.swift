@@ -162,7 +162,7 @@ var products : [Products]?
             {
                 let productIndexPath = self.tableView.indexPath(for: (sender as! UITableViewCell))!
                 let object = products![productIndexPath.row]
-                controller.setIndex(index: productIndexPath.row ,data: object.Product_Description)
+                controller.setIndex(index: productIndexPath.row ,data: object.Product_Id)
                 
             
         }
