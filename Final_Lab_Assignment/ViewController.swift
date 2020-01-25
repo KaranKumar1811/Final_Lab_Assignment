@@ -31,10 +31,10 @@ class ViewController: UIViewController {
         
         
     }
-    func setIndex(index: Int,data: Int){
-               print(data);
-               id = data
-        print(id)
+    func setIndex(index: Int,data: String){
+               //print(data);
+               name = data
+        //print(id)
                products = [Products]()
                
                let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,8 +51,10 @@ class ViewController: UIViewController {
                            let pdesc = result.value(forKey: "desc") as! String
                            
                            let pprice = result.value(forKey: "price") as! Float
-                           
-                           if (id == data)
+                           print(data)
+                        print(id)
+                        print(pid)
+                           if (name == data)
                            {
                                print(name)
                             products?.append(Products(ProductName: name, Product_Description: desc, Product_Price: Int(price), Product_Id: id))
@@ -61,7 +63,7 @@ class ViewController: UIViewController {
                             id = Int(pid)
                                desc = pdesc
                             price = Double(pprice)
-                               
+                              break
                            }
                            
                            

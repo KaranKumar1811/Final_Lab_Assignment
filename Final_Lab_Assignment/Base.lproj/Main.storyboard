@@ -119,9 +119,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="1dK-Ap-dFo">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" textLabel="xtL-MT-zOQ" detailTextLabel="eNN-dH-R1L" style="IBUITableViewCellStyleSubtitle" id="k5f-11-CzG">
-                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k5f-11-CzG" id="xdn-n5-NYh">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -154,6 +159,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wx9-23-8pj"/>
+                    <connections>
+                        <outlet property="search" destination="1dK-Ap-dFo" id="yJw-O2-sMB"/>
+                        <outlet property="tableView1" destination="l6U-u7-jbd" id="38E-sX-lGn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UN5-mF-YIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

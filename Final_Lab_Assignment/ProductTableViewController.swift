@@ -8,13 +8,15 @@
 
 import UIKit
 import CoreData
-class ProductTableViewController: UITableViewController {
+class ProductTableViewController: UITableViewController,UISearchBarDelegate {
 var products : [Products]?
 
      var temp = Singleton.getInstance()
     
     
-
+    @IBOutlet weak var search: UISearchBar!
+    @IBOutlet var tableView1: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -162,11 +164,32 @@ var products : [Products]?
             {
                 let productIndexPath = self.tableView.indexPath(for: (sender as! UITableViewCell))!
                 let object = products![productIndexPath.row]
-                controller.setIndex(index: productIndexPath.row ,data: object.Product_Id)
+                controller.setIndex(index: productIndexPath.row ,data: object.Product_Name)
                 
             
         }
 
 }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+//    {
+//      let filtered = items.filter { $0.titleName.lowercased().contains(searchText.lowercased()) || $0.description.lowercased().contains(searchText.lowercased())}
+//           
+//      if filtered.count>0
+//      {
+//        searcharray = filtered;
+//        issearch = true;
+//      }
+//      else
+//      {
+//        issearch = false;
+//      }
+//      self.allNotesTV.reloadData();
+//    }
+//     
+//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool
+//    {
+//      return true;
+//    }
     
 }
