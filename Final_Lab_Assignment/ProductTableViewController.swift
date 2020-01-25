@@ -7,21 +7,83 @@
 //
 
 import UIKit
-
+import CoreData
 class ProductTableViewController: UITableViewController {
 var products : [Products]?
+
+     var temp = Singleton.getInstance()
     
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        temp.createProduct()
+ //       print(temp.returnProductObj())
+        products = temp.returnProductArray()
+       saveCoreData()
+        tableView.reloadData()
+    }
+    
+    
+    func saveCoreData(){
+//    clearCoreData()
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+         let managedContext = appDelegate.persistentContainer.viewContext
+         
+         for  product in products!
+         {
+             let productEntity = NSEntityDescription.insertNewObject(forEntityName: "Product", into: managedContext)
+             productEntity.setValue(product.Product_Name, forKey: "name")
+           // print(product.Product_Name)
+             productEntity.setValue(product.Product_Description, forKey: "desc")
+              productEntity.setValue(product.Product_Id, forKey: "id")
+              productEntity.setValue(product.Product_Price, forKey: "price")
+             
+             // save context
+             do{
+                 try managedContext.save()
+             }catch{
+                 print(error)
+             }
+         }
+     }
+     
+    
+    
+    func loadCoreData(){
+        products = [Products]()
+       saveCoreData()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       
+        let managedContext = appDelegate.persistentContainer.viewContext
         
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        
+        do{
+            let results = try managedContext.fetch(fetchRequest)
+            if results is [NSManagedObject]{
+                for result in results as! [NSManagedObject]{
+                    let name = result.value(forKey: "name") as! String
+                    let desc = result.value(forKey: "desc") as! String
+                    let id = result.value(forKey: "id") as! Int
+                    let price = result.value(forKey: "price") as! Int
+                    products?.append(Products(ProductName: name, Product_Description: desc, Product_Price: price, Product_Id: id))
+                }
+            }
+        }catch{
+            print(error)
+        }
         
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -43,6 +105,7 @@ var products : [Products]?
                let cell = tableView.dequeueReusableCell(withIdentifier: "productCell")
                cell?.textLabel?.text = "\(product.Product_Id)" + " - " + "\(product.Product_Name)"
         cell?.detailTextLabel?.text = "\(product.Product_Description) - \(product.Product_Price)"
+        
                return cell!
     }
     

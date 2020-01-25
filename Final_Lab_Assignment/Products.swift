@@ -20,3 +20,4 @@ class Products {
       var Product_Price : Int
       var Product_Id : Int
 }
+
