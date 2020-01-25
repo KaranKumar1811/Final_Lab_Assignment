@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     
     func saveCoreData(){
-   
+   clearCoreData()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -83,11 +83,44 @@ class ViewController: UIViewController {
         let product =  Products(ProductName: name, Product_Description: desc, Product_Price: price, Product_Id: id)
         
         products?.append(product)
+        
+        for textField in textFields{
+                  textField.text = ""
+                  textField.resignFirstResponder()
+              }
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if let ProductTable = segue.destination as? ProductTableViewController{
+               ProductTable.products = self.products
+           }
+       }
+    
+    
 
-    
-    
+    func clearCoreData(){
+         // create an instance of app delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                   // second step is context
+                            
+        let managedContext = appDelegate.persistentContainer.viewContext
+                   
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        
+        fetchRequest.returnsObjectsAsFaults = false
+        do{
+            let results = try managedContext.fetch(fetchRequest)
+            for manageObjects in results{
+                if let managedObjectData = manageObjects as? NSManagedObject
+                {
+                    managedContext.delete(managedObjectData)
+                }
+                
+            }
+        }catch{
+            print(error)
+        }
+    }
 }
 
