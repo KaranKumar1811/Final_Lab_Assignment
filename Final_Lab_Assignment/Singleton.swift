@@ -10,75 +10,62 @@ import Foundation
 import CoreData
 class Singleton : NSObject
 {
-    
-    private var productArray  = [Products]()
-    private static var object = Singleton()
-
-    private override init() {
-        
-    }
-    
-    internal static func getInstance() -> Singleton
-    {
-        return object
-    }
-    
-    
+private var productArray  = [Product]()
    
-    
-    func addProduct(product: Products)
-    {
-        productArray.append(product)
-    }
-    
-    func returnProductArray() -> [Products] {
-        return productArray
-    }
-    
-    func returnProductObj() -> Products?
-    {
-        for product in productArray
-        {
-            return product
-        }
-        return nil
-        
-    }
-    func returnCount() -> Int
-    {
-        return productArray.count
-    }
-    
+   private static var obj = Singleton()
+   
+   
+   private override init() {
+       
+   }
+   
+   internal static func getInstance() -> Singleton
+   {
+       return obj
+   }
+   
     
     func createProduct()
     {
+       let p1 = Product(id: 121, name: "Mobile", desc: "Iphone", price: 2000.0)
        
-       let p1 = Products(ProductName: "iphone", Product_Description: "max pro", Product_Price: 1000, Product_Id: 1)
-        let p2 = Products(ProductName: "samsung", Product_Description: "s10", Product_Price: 1000, Product_Id: 2)
-       let p3 = Products(ProductName: "mi", Product_Description: "max", Product_Price: 1000, Product_Id: 3)
-        let p4 = Products(ProductName: "kabs", Product_Description: "bsf pro", Product_Price: 1000, Product_Id: 4)
-        let p5 = Products(ProductName: "bddsa", Product_Description: "mart", Product_Price: 1000, Product_Id: 5)
-        let p6 = Products(ProductName: "fsgf", Product_Description: "magdfgx pro", Product_Price: 1000, Product_Id: 6)
-        let p7 = Products(ProductName: "opdgj", Product_Description: "dgj pro", Product_Price: 1000, Product_Id: 7)
-        let p8 = Products(ProductName: "bdisug", Product_Description: "maxgadfspro", Product_Price: 1000, Product_Id: 8)
-       let p9 = Products(ProductName: "shfi", Product_Description: "majsdfihsix pro", Product_Price: 1000, Product_Id: 9)
-        let p10 = Products(ProductName: "dghi", Product_Description: "mbgjoax pro", Product_Price: 1000, Product_Id: 10)
+       let p2 = Product(id: 122, name: "Tab", desc: "Samsung", price: 2000.0)
+       
+       let p3 = Product(id: 123, name: "Charger", desc: "Oppo", price: 2000.0)
+       
+       let p4 = Product(id: 124, name: "Headphones", desc: "Iphone X", price: 2000.0)
+       
+       let p5 = Product(id: 125, name: "Ear pods", desc: "Iphone XR", price: 2000.0)
+       
+       let p6 = Product(id: 126, name: "powerBank", desc: "Iphone 11", price: 2000.0)
+       
+       let p7 = Product(id: 127, name: "lightning cabel", desc: "Iphone 11 Pro", price: 2000.0)
+       
+       let p8 = Product(id: 128, name: "laptop", desc: "Iphone 7", price: 2000.0)
+       
+       let p9 = Product(id: 129, name: "macbook", desc: "Iphone 6", price: 2000.0)
+       
+       let p10 = Product(id: 130, name: "mobile case", desc: "Iphone 8", price: 2000.0)
         
-       addProduct(product: p1)
-        addProduct(product: p2)
-               addProduct(product: p3)
-                      addProduct(product: p4)
-                             addProduct(product: p5)
-                                    addProduct(product: p6)
-                                           addProduct(product: p7)
-                                                  addProduct(product: p8)
-                                                         addProduct(product: p9)
-                                                                addProduct(product: p10)
+                     productArray.append(p1)
+                     productArray.append(p2)
+                     productArray.append(p3)
+                     productArray.append(p4)
+                     productArray.append(p5)
+                     productArray.append(p6)
+                     productArray.append(p7)
+                     productArray.append(p8)
+                     productArray.append(p9)
+                     productArray.append(p10)
                                                                      
                                                                                      
     }
-    
-    
+func returnProductArray() -> [Product]
+      {
+          return productArray
+          }
     
     
 }
+    
+
